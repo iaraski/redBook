@@ -3,7 +3,7 @@ import BookPage from '../views/bookPage.vue'
 import { useBookStore } from '../stores/booksStore'
 import BooksMainPage from '../views/booksMainPage.vue'
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/redBook/'),
   routes: [
     {
       path: '/book/:id',
