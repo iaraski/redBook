@@ -32,41 +32,37 @@
     </div>
 
     <div v-else class="books-grid">
-      <v-card
-        v-for="book in books"
-        :key="book.id"
-        class="book-card"
-        :to="`/book/${book.id}`"
-        target="_blank"
-      >
-        <v-img
-          :src="book.preview"
-          :alt="`Обложка книги: ${book.title}`"
-          height="220"
-          cover
-          gradient="to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.4)"
-        />
+      <v-card v-for="book in books" :key="book.id" class="book-card" target="_blank">
+        <router-link :to="`/book/${book.id}`">
+          <v-img
+            :src="book.preview"
+            :alt="`Обложка книги: ${book.title}`"
+            height="220"
+            cover
+            gradient="to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.4)"
+          />
 
-        <div class="book-content">
-          <v-card-title class="book-title">
-            {{ book.title.length > 25 ? `${book.title.slice(0, 25)}...` : book.title }}
-          </v-card-title>
+          <div class="book-content">
+            <v-card-title class="book-title">
+              {{ book.title.length > 25 ? `${book.title.slice(0, 25)}...` : book.title }}
+            </v-card-title>
 
-          <v-card-subtitle class="book-authors">
-            {{ book.authors.join(', ') }}
-          </v-card-subtitle>
+            <v-card-subtitle class="book-authors">
+              {{ book.authors.join(', ') }}
+            </v-card-subtitle>
 
-          <v-card-text class="book-details py-2">
-            <div class="d-flex align-center mb-1">
-              <v-icon color="amber-darken-3" size="16">mdi-star</v-icon>
-            </div>
-            <div class="text-caption text-grey">{{ book.publishedDate }}</div>
-          </v-card-text>
+            <v-card-text class="book-details py-2">
+              <div class="d-flex align-center mb-1">
+                <v-icon color="amber-darken-3" size="16">mdi-star</v-icon>
+              </div>
+              <div class="text-caption text-grey">{{ book.publishedDate }}</div>
+            </v-card-text>
 
-          <v-card-actions class="pt-0">
-            <v-btn variant="text" color="primary" size="small">Подробнее</v-btn>
-          </v-card-actions>
-        </div>
+            <v-card-actions class="pt-0">
+              <v-btn variant="text" color="primary" size="small">Подробнее</v-btn>
+            </v-card-actions>
+          </div>
+        </router-link>
       </v-card>
     </div>
 
